@@ -1,0 +1,32 @@
+{
+  "name": "vue-dialog",
+  "version": "0.0.1",
+  "description": "dialog component for Vue.js",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petitspois/vue-dialog.git"
+  },
+  "keywords": [
+    "vue",
+    "dialg",
+    "framework",
+    "plugin"
+  ],
+  "author": "petitspois",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/petitspois/vue-dialog/issues"
+   },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^1.5.1",
+    "gulp-rename": "^1.2.2"
+   }
+}

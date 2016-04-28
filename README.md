@@ -1,2 +1,5 @@
 # vue-dialog
-Pop-up dialog boxes for  Vuejs
+
+Dialog plugin for Vue.js.
+
+The plugin provides services for pop dialog.

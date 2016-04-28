@@ -15,7 +15,7 @@
 
             config = extend(defaultConfig, config);
 
-            config.methods = extend(config.methods, {
+            config.methods = extend(config.methods || {}, {
                 close:function(){
                     this.$remove()
                 },
@@ -25,26 +25,30 @@
             })
 
             var tpl = [
-                '<div class="layui-layer-shade" id="layui-layer-shade2" times="2" style="z-index:19891015; background-color:#000; opacity:0.3; filter:alpha(opacity=30);"></div>',
-                '<div class="layui-layer layui-anim layui-layer-dialog " id="layui-layer2" type="dialog" times="2" showtime="0" contype="string" style="z-index: 19891016; top: 132.5px; left: 582px;">',
-                    '<div class="layui-layer-title">信息</div>',
+                '<div class="layui-layer-shade" id="layui-layer-shade2" times="2" style="z-index:19870123; background-color:#000; opacity:0.3; filter:alpha(opacity=30);"></div>',
+                '<div class="layui-layer layui-anim layui-layer-dialog" >',
+                    '<div class="layui-layer-title" v-text="title"></div>',
                     '<div class="layui-layer-content">'+config.data.content+'</div>',
                     '<span class="layui-layer-setwin">',
                         '<a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;" @click="close"></a>',
                     '</span>',
                     '<div class="layui-layer-btn">',
-                        '<a v-for="(index, item) in btn" class="layui-layer-btn{{index}}" v-text="item.msg" @click="handle(item.bind)"></a>',
+                        '<a v-for="(index, item) in btn" style="{{item.style}}" class="layui-layer-btn{{index}}" v-text="item.text" @click="handle(item.bind)"></a>',
                     '</div>',
                 '</div>'
             ].join('');
-
+            
             vm = new Vue({
                 replace: false,
                 template: tpl,
                 data: config.data,
                 methods: config.methods,
                 ready:function(){
-
+                    if(typeof this.ready == 'function')this.ready();
+                    var layDOM = divEl.querySelector('.layui-layer');
+                    var layWidth = layDOM.offsetWidth;
+                    var layHeight = layDOM.offsetHeight;
+                    layDOM.style.cssText = 'z-index: 19870124;top:50%;left:50%;margin-top:'+(-(layHeight/2))+'px;margin-left:'+(-(layWidth/2))+'px;';
                 }
             })
             var divEl = document.createElement('div');
@@ -53,8 +57,6 @@
             vm.$appendTo(config.target);
 
         }
-
-
 
 
         function extend(target, source) {

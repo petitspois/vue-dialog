@@ -1,0 +1,16 @@
+{
+  "name": "vue-dialog",
+  "version": "0.0.1",
+  "description": "Dialog plugin for Vue.js.",
+  "main": "src/vue-dialog.js",
+  "authors": ["petitspois <4039293@qq.com>"],
+  "license": "MIT",
+  "ignore": [
+    ".*",
+    "*.md",
+    "*.json",
+    "example",
+    "node_modules",
+    "bower_components"
+  ]
+}

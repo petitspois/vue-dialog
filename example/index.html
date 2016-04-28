@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-dialog</title>
+    <link rel="stylesheet" href="./dialog.css" />
+    <script src="../bower_components/vue/dist/vue.min.js"></script>
+    <script src="../dist/vue-dialog.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <button @click="clickme"> Click I will pop up </button>
+    </div>
+    <script>
+        var vm = new Vue({
+            data:{
+                say: 'I am parent'
+            },
+            methods:{
+                clickme:function(){
+                    var that = this;
+                    Vue.dialog({
+                        data:{
+                            title: 'self',
+                            say: that.say,
+                            content:'<p @click="clickmeagain">{{say}}</p>',
+                            btn:[{
+                                    text:'confirm',
+                                    bind:'confirm'
+                                },
+                                {
+                                    text:'cancel',
+                                    bind: 'cancel'
+                                }
+                            ]
+                        },
+                        methods:{
+                            ready:function(){
+                            },
+                            confirm:function(){
+                                alert('I am confirm')
+                            },
+                            cancel:function(){
+                                alert('I am cancel')
+                            },
+                            clickmeagain:function(){
+                                alert('click me again')
+                            }
+                        }
+                    })
+                }
+            }
+        })
+        vm.$mount('#container');
+    </script>
+</body>
+</html>
