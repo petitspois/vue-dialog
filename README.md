@@ -18,7 +18,7 @@ If you are using Vue globally, just include vue-dialog.js and it will automatica
 
 ##Usage
 
-And use the same vue.js.
+The same as vue.js.
 
 ###Add button
 ```js
