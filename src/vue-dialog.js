@@ -60,9 +60,13 @@
 
 
         function extend(target, source) {
-            for (var p in source) {
-                if (source.hasOwnProperty(p)) {
-                    target[p] = source[p];
+            for (var property in source) {
+                if (source[property] && source[property].constructor &&
+                    source[property].constructor === Object) {
+                    target[property] = target[property] || {};
+                    extend(target[property], source[property]);
+                } else {
+                    target[property] = source[property];
                 }
             }
             return target;
